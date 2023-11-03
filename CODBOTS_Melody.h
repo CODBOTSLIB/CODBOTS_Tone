@@ -13,7 +13,7 @@ class CODBOTS_Melody
         CODBOTS_Melody();
         CODBOTS_Melody(int pin_);
 
-        addTone();
+        addToneaddTone(Tones tone);
 
     private:
         int pin;
