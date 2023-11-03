@@ -1,31 +1,22 @@
-
 #ifndef Tone_h
 #define Tone_h
 
 #include <Arduino.h> 
-#include <notes.h> 
-
 
 class Tone
 {
-    public:
-        Tone();
-        Tone(uint32_t tone_);
-        Tone(uint32_t tone_,uint8_t duration_);
-        uint32_t tone;
-        uint8_t duration;
+public:
+    Tone();
+    Tone(uint32_t tone_);
+    Tone(uint32_t tone_, uint32_t duration_);
+    void setTone(uint32_t tone_);
+    void setDuration(uint32_t duration_);
+    uint32_t getTone() const;
+    uint32_t getDuration() const;
 
+private:
+    uint32_t tone;
+    uint32_t duration;
 };
-
-Tone::Tone(){}
-
-Tone::Tone(uint32_t tone_){
-        tone = tone_;
-}
-
-Tone::Tone(uint32_t tone_,uint8_t duration_){
-        tone = tone_;
-        duration = duration_;
-}
 
 #endif
