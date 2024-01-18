@@ -1,17 +1,17 @@
 
-#ifndef CODBOTS_Melody_h
-#define CODBOTS_Melody_h
+#ifndef ii_Melody_h
+#define ii_Melody_h
 
 #include <Arduino.h> 
 #include <Notes.h> 
 #include <Tone.h> 
 
 
-class CODBOTS_Melody
+class ii_Melody
 {
     public:
-        CODBOTS_Melody();
-        CODBOTS_Melody(int pin_);
+        ii_Melody();
+        ii_Melody(int pin_);
 
         void begin();
 

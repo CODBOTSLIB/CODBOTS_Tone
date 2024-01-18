@@ -1,11 +1,11 @@
-#include <CODBOTS_Melody.h>
+#include <ii_Melody.h>
  
 
 #include <Melody.h>
 
 
 
-CODBOTS_Melody melody(19);
+ii_Melody melody(19);
 void setup() {
   Serial.begin(115200);
   melody.begin();

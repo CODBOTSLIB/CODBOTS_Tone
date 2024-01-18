@@ -1,26 +1,26 @@
-#include <CODBOTS_Melody.h>
+#include <ii_Melody.h>
 
-CODBOTS_Melody::CODBOTS_Melody()
+ii_Melody::ii_Melody()
 {
 }
-CODBOTS_Melody::CODBOTS_Melody(int pin_)
+ii_Melody::ii_Melody(int pin_)
 {
     pin = pin_;
 }
 
-void CODBOTS_Melody::begin()
+void ii_Melody::begin()
 {
     pinMode(pin, OUTPUT);
     ledcSetup(0, 400, 8); // Configure LEDC channel 0
     ledcAttachPin(pin, 0);
 }
 
-int CODBOTS_Melody::getLength()
+int ii_Melody::getLength()
 {
     return melody_length;
 }
 
-void CODBOTS_Melody::add(Tone tone)
+void ii_Melody::add(Tone tone)
 {
     Tone *newmelody = new Tone[melody_length + 1];
 
@@ -35,7 +35,7 @@ void CODBOTS_Melody::add(Tone tone)
     melody_length++;
 }
 
-void CODBOTS_Melody::add(Tone tone[], int length, float tempo_)
+void ii_Melody::add(Tone tone[], int length, float tempo_)
 {
     melody_length = 0;
     tempo = tempo_;
@@ -45,7 +45,7 @@ void CODBOTS_Melody::add(Tone tone[], int length, float tempo_)
     }
 }
 
-void CODBOTS_Melody::clear()
+void ii_Melody::clear()
 {
     delete[] melody;
     melody_length = 0;
@@ -54,17 +54,17 @@ void CODBOTS_Melody::clear()
     direction = true;
 }
 
-bool CODBOTS_Melody::play()
+bool ii_Melody::play()
 {
     return play(false);
 }
 
-bool CODBOTS_Melody::play(bool repeat)
+bool ii_Melody::play(bool repeat)
 {
     return play(repeat, false);
 }
 
-bool CODBOTS_Melody::play(bool repeat, bool zigzag)
+bool ii_Melody::play(bool repeat, bool zigzag)
 {
     if (millis() - played_time > playing_duration)
     {
@@ -124,18 +124,18 @@ bool CODBOTS_Melody::play(bool repeat, bool zigzag)
     }
 }
 
-void CODBOTS_Melody::stop()
+void ii_Melody::stop()
 {
     noTone(pin);
 }
 
-void CODBOTS_Melody::reset()
+void ii_Melody::reset()
 {
     stop();
     current_tone = 0;
 }
 
-long CODBOTS_Melody::getDuration()
+long ii_Melody::getDuration()
 {
     long duration;
     for (int n = 0; n < melody_length; n++)
